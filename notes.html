@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notes | BCA Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="brand-name">KΞT!ΛИ</span>
+          <span class="brand-sub">BCA Toolkit</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notes.html" class="active">Notes</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <button id="themeToggle" class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>📘 Chapter-wise Coding Notes</h1>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('fy')">FY</button>
+      <button class="tab" onclick="showTab('sy')">SY</button>
+      <button class="tab" onclick="showTab('ty')">TY</button>
+    </div>
+
+    <div class="tab-content" id="fy">
+      <div class="subject-block">
+        <h2>🧠 Problem Solving using C</h2>
+        <details><summary>Chapter 1: Introduction</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Data Types</summary><a href="#">Download PDF</a></details>
+      </div>
+    </div>
+
+    <div class="tab-content" id="sy" style="display:none;">
+      <div class="subject-block">
+        <h2>☕ Java Programming</h2>
+        <details><summary>Chapter 1: OOP Concepts</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Classes</summary><a href="#">Download PDF</a></details>
+      </div>
+    </div>
+
+    <div class="tab-content" id="ty" style="display:none;">
+      <div class="subject-block">
+        <h2>🌐 Web Tech II</h2>
+        <details><summary>Chapter 1: React Basics</summary><a href="#">Download PDF</a></details>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Made with ❤️ by KΞT!ΛИ | © 2025</p>
+    <div class="footer-icons">
+      <a href="mailto:ketanjaadhav5602@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://instagram.com/me.ketan_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/mrketan5602" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark");
+      document.getElementById("themeToggle").textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+      localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeToggle").textContent = "☀️";
+      }
+    });
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).style.display = 'block';
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

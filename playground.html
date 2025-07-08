@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Playground | BCA Toolkit</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="brand-name">KΞT!ΛИ</span>
+          <span class="brand-sub">BCA Toolkit</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="playground.html" class="active">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <button id="themeToggle" class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>🧪 Live Code Playground</h1>
+    <div class="playground">
+      <textarea id="html" placeholder="Write HTML here..."></textarea>
+      <textarea id="css" placeholder="Write CSS here..."></textarea>
+      <textarea id="js" placeholder="Write JavaScript here..."></textarea>
+      <button onclick="runCode()">▶ Run Code</button>
+      <iframe id="output"></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Made with ❤️ by KΞT!ΛИ | © 2025</p>
+    <div class="footer-icons">
+      <a href="mailto:ketanjaadhav5602@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://instagram.com/me.ketan_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/mrketan5602" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("html").value;
+      const css = "<style>" + document.getElementById("css").value + "</style>";
+      const js = "<script>" + document.getElementById("js").value + "<\/script>";
+      const output = document.getElementById("output");
+      output.srcdoc = html + css + js;
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark");
+      document.getElementById("themeToggle").textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+      localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeToggle").textContent = "☀️";
+      }
+    });
+  </script>
+</body>
+</html>
