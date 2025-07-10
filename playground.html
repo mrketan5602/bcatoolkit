@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav class="nav">
       <div class="nav-container">
@@ -27,19 +28,23 @@
     </nav>
   </header>
 
+  <!-- Playground Section -->
   <main class="container">
     <h1>🧪 Live Code Playground</h1>
     <div class="playground">
-      <textarea id="html" placeholder="Write HTML here..."></textarea>
-      <textarea id="css" placeholder="Write CSS here..."></textarea>
-      <textarea id="js" placeholder="Write JavaScript here..."></textarea>
-      <button onclick="runCode()">▶ Run Code</button>
-      <iframe id="output"></iframe>
+      <div class="editor">
+        <textarea id="html" placeholder="Write HTML..." spellcheck="false"></textarea>
+        <textarea id="css" placeholder="Write CSS..." spellcheck="false"></textarea>
+        <textarea id="js" placeholder="Write JavaScript..." spellcheck="false"></textarea>
+      </div>
+      <button onclick="runCode()" class="run-btn">▶ Run Code</button>
+      <iframe id="output" class="output"></iframe>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <p>Made with ❤️ by KΞT!ΛИ | © 2025</p>
+    <p>Made with ❤️ by <strong>KΞT!ΛИ</strong> | © 2025</p>
     <div class="footer-icons">
       <a href="mailto:ketanjaadhav5602@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://instagram.com/me.ketan_" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -47,13 +52,13 @@
     </div>
   </footer>
 
+  <!-- Script -->
   <script>
     function runCode() {
       const html = document.getElementById("html").value;
-      const css = "<style>" + document.getElementById("css").value + "</style>";
-      const js = "<script>" + document.getElementById("js").value + "<\/script>";
-      const output = document.getElementById("output");
-      output.srcdoc = html + css + js;
+      const css = `<style>${document.getElementById("css").value}</style>`;
+      const js = `<script>${document.getElementById("js").value}<\/script>`;
+      document.getElementById("output").srcdoc = html + css + js;
     }
 
     function toggleMenu() {
