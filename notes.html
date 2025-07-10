@@ -31,31 +31,71 @@
     <h1>📘 Chapter-wise Coding Notes</h1>
 
     <div class="tabs">
-      <button class="tab active" onclick="showTab('fy')">FY</button>
-      <button class="tab" onclick="showTab('sy')">SY</button>
-      <button class="tab" onclick="showTab('ty')">TY</button>
+      <button class="tab active" onclick="showTab('fy', event)">FY</button>
+      <button class="tab" onclick="showTab('sy', event)">SY</button>
+      <button class="tab" onclick="showTab('ty', event)">TY</button>
     </div>
 
+    <!-- FY Subjects -->
     <div class="tab-content" id="fy">
       <div class="subject-block">
         <h2>🧠 Problem Solving using C</h2>
         <details><summary>Chapter 1: Introduction</summary><a href="#">Download PDF</a></details>
         <details><summary>Chapter 2: Data Types</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 3: Control Structures</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>🧩 Advanced C Programming</h2>
+        <details><summary>Chapter 1: Pointers</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Structures</summary><a href="#">Download PDF</a></details>
       </div>
     </div>
 
+    <!-- SY Subjects -->
     <div class="tab-content" id="sy" style="display:none;">
       <div class="subject-block">
         <h2>☕ Java Programming</h2>
         <details><summary>Chapter 1: OOP Concepts</summary><a href="#">Download PDF</a></details>
-        <details><summary>Chapter 2: Classes</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Inheritance</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 3: Interfaces</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>🧮 Data Structures</h2>
+        <details><summary>Chapter 1: Arrays & Linked Lists</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Stacks & Queues</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>🐍 Python Programming</h2>
+        <details><summary>Chapter 1: Python Basics</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Functions</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>🌐 Web Technologies I</h2>
+        <details><summary>Chapter 1: HTML & CSS</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: JavaScript</summary><a href="#">Download PDF</a></details>
       </div>
     </div>
 
+    <!-- TY Subjects -->
     <div class="tab-content" id="ty" style="display:none;">
       <div class="subject-block">
-        <h2>🌐 Web Tech II</h2>
+        <h2>⚙️ Core & Advanced Java</h2>
+        <details><summary>Chapter 1: Multithreading</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Exception Handling</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>🌍 Web Technologies II</h2>
         <details><summary>Chapter 1: React Basics</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: SPAs</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>📱 Android Programming</h2>
+        <details><summary>Chapter 1: Activity Lifecycle</summary><a href="#">Download PDF</a></details>
+        <details><summary>Chapter 2: Intents & UI</summary><a href="#">Download PDF</a></details>
+      </div>
+      <div class="subject-block">
+        <h2>💡 Internet of Things (IoT)</h2>
+        <details><summary>Chapter 1: Sensors & Devices</summary><a href="#">Download PDF</a></details>
       </div>
     </div>
   </main>
@@ -73,19 +113,22 @@
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('show');
     }
+
     function toggleDarkMode() {
       const body = document.body;
       body.classList.toggle("dark");
       document.getElementById("themeToggle").textContent = body.classList.contains("dark") ? "☀️" : "🌙";
       localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
     }
+
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark");
         document.getElementById("themeToggle").textContent = "☀️";
       }
     });
-    function showTab(tabId) {
+
+    function showTab(tabId, event) {
       document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
       document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
       document.getElementById(tabId).style.display = 'block';
