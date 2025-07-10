@@ -8,15 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav class="nav">
       <div class="nav-container">
+        <!-- Logo -->
         <div class="logo">
-  <span class="brand-name">K<span class="symbol">Ξ</span>T<span class="symbol">!</span>ΛИ</span>
-  <span class="brand-sub">Toolkit</span>
-</div>
+          <span class="brand-name">K<span class="symbol">Ξ</span>T<span class="symbol">!</span>ΛИ</span>
+          <span class="brand-sub">BCA Toolkit</span>
+        </div>
 
-
+        <!-- Navigation Links -->
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="notes.html">Notes</a></li>
@@ -24,39 +26,47 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
 
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <button id="themeToggle" class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
+        <!-- Toggles -->
+        <div class="nav-buttons">
+          <button class="hamburger" onclick="toggleMenu()">☰</button>
+          <button id="themeToggle" class="toggle-theme" onclick="toggleDarkMode()">🌙</button>
+        </div>
       </div>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <main class="container hero-section">
     <div class="hero-content">
-      <h1>Welcome to BCA Toolkit</h1>
-      <p>Your ultimate companion for notes, coding, and creativity.</p>
-      <a href="notes.html" class="cta-button">Explore Notes →</a>
+      <h1>Welcome to <span class="highlight">BCA Toolkit</span></h1>
+      <p>📘 A minimal, powerful platform for students to access <strong>notes</strong>, practice <strong>code</strong>, and share knowledge.</p>
+      <a href="notes.html" class="cta-button">🚀 Start Learning</a>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <p>Made with ❤️ by KΞT!ΛИ | © 2025</p>
+    <p>Made with ❤️ by <strong>KΞT!ΛИ</strong> | © 2025</p>
     <div class="footer-icons">
-      <a href="mailto:ketanjaadhav5602@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://instagram.com/me.ketan_" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/mrketan5602" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:ketanjaadhav5602@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://instagram.com/me.ketan_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/mrketan5602" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('show');
     }
+
     function toggleDarkMode() {
       const body = document.body;
       body.classList.toggle("dark");
       document.getElementById("themeToggle").textContent = body.classList.contains("dark") ? "☀️" : "🌙";
       localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
     }
+
     window.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark");
