@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ a {
   padding: 20px;
 }
 
-/* ================= NAVBAR ================= */
+/* ========== NAVBAR ========== */
 .nav {
   background: #fff;
   border-bottom: 1px solid #ddd;
@@ -62,41 +62,38 @@ a {
   display: none;
 }
 
-/* ========== Animated Logo ========== */
+/* ========== LOGO (Animated & Minimal) ========== */
 .logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  cursor: pointer;
   line-height: 1;
-  animation: logoEntrance 0.8s ease-in-out forwards;
+  animation: fadeInLogo 0.6s ease forwards;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
-@keyframes logoEntrance {
+@keyframes fadeInLogo {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 .brand-name {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   background: linear-gradient(to right, #0d6efd, #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: flex;
-  gap: 2px;
 }
 .symbol {
-  animation: pulse 1.8s infinite ease-in-out;
+  animation: pulse 1.6s infinite ease-in-out;
 }
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    opacity: 0.9;
+    opacity: 0.85;
   }
   50% {
     transform: scale(1.1);
@@ -104,36 +101,35 @@ a {
   }
 }
 .brand-sub {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-family: monospace;
-  color: #555;
+  color: #666;
   opacity: 0.6;
-  margin-top: 4px;
   letter-spacing: 1px;
+  margin-top: 2px;
 }
 body.dark .brand-sub {
-  color: #bbb;
+  color: #aaa;
 }
 
-/* ========== HERO SECTION (Home) ========== */
+/* ========== HERO SECTION ========== */
 .hero-section {
   text-align: center;
   padding: 80px 20px;
 }
 .hero-section h1 {
-  font-size: 36px;
+  font-size: 2.4rem;
   margin-bottom: 10px;
 }
 .hero-section p {
-  font-size: 18px;
-  color: #666;
+  font-size: 1.1rem;
+  color: #555;
   margin-bottom: 20px;
 }
 .cta-button {
-  display: inline-block;
   background: #0d6efd;
   color: #fff;
-  padding: 12px 30px;
+  padding: 12px 28px;
   border-radius: 6px;
   font-weight: 500;
   transition: background 0.3s;
@@ -152,8 +148,9 @@ body.dark .brand-sub {
   background: #e0e0e0;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
 }
 .tab.active {
   background: #0d6efd;
@@ -171,11 +168,29 @@ body.dark .brand-sub {
   color: #0d6efd;
 }
 .subject-block details {
-  margin-left: 20px;
-  margin-bottom: 5px;
+  background: #fff;
+  padding: 10px 15px;
+  margin-left: 15px;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+.subject-block details:hover {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+body.dark .subject-block details {
+  background: #2a2a2a;
+  border-color: #444;
 }
 
 /* ========== PLAYGROUND ========== */
+.playground {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
 .playground textarea {
   width: 100%;
   height: 120px;
@@ -200,6 +215,9 @@ body.dark .brand-sub {
   border-radius: 4px;
   cursor: pointer;
 }
+body.dark .playground {
+  background: #222;
+}
 
 /* ========== CONTACT PAGE ========== */
 .contact-section {
@@ -211,10 +229,10 @@ body.dark .brand-sub {
 .contact-card {
   background: #fff;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.07);
 }
 .contact-card form {
   display: flex;
@@ -263,10 +281,25 @@ body.dark .brand-sub {
 .footer-icons a {
   margin: 0 8px;
   font-size: 18px;
-  color: #333;
+  transition: 0.3s;
+}
+.footer-icons a[href*="github"] {
+  color: #000;
+}
+.footer-icons a[href*="instagram"] {
+  color: #E1306C;
+}
+.footer-icons a[href^="mailto:"] {
+  color: #d44638;
 }
 .footer-icons a:hover {
-  color: #0d6efd;
+  transform: scale(1.2);
+}
+body.dark .footer {
+  background: #2a2a2a;
+}
+body.dark .footer-icons a {
+  color: #ccc;
 }
 
 /* ========== DARK MODE ========== */
@@ -278,7 +311,7 @@ body.dark .nav,
 body.dark .contact-card,
 body.dark .tab,
 body.dark .tab-content,
-body.dark .footer {
+body.dark .tabs {
   background: #2a2a2a;
   color: #f1f1f1;
 }
@@ -295,7 +328,7 @@ body.dark .contact-card textarea {
   border-color: #444;
 }
 
-/* ========== MOBILE RESPONSIVE ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
